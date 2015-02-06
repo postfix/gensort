@@ -31,7 +31,7 @@ func {{if .receiver}}({{.receiver}}) {{end}}{{.name}}(xs []{{.T}}) {
 	partition := func(xs []{{.T}}) (low, high []{{.T}}) {
 		var (
 			chosen = rand.Intn(len(xs))
-			y  = xs[chosen]
+			y      = xs[chosen]
 		)
 
 		i, j := 0, 0
