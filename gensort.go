@@ -1,4 +1,4 @@
-// Binary tmpl TODO
+// Binary gensort generates a sort function for arbitrary type T and for arbitrary compare functions.
 package main
 
 import (
