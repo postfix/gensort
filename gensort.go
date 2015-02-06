@@ -25,33 +25,32 @@ import (
 	"sync"
 )
 
-func {{if .receiver}}({{.receiver}}) {{end}}{{.name}}(xs []{{.T}}) {
-	const threshold = 1000
-
-	partition := func(xs []{{.T}}) (low, high []{{.T}}) {
+func {{if .receiver}}({{.receiver}}) {{end}}{{.name}}(_xs []{{.T}}) {
+	_partition := func(_xs []{{.T}}) (low, high []{{.T}}) {
 		var (
-			chosen = rand.Intn(len(xs))
-			y      = xs[chosen]
+			_chosen = rand.Intn(len(_xs))
+			y       = _xs[_chosen]
 		)
 
-		i, j := 0, 0
-		for k, x := range xs {
+		_i, _j := 0, 0
+		for _k, x := range _xs {
 			if {{.less}} {
-				xs[k] = xs[j]
-				xs[j] = xs[i]
-				xs[i] = x
-				i++
-				j++
+				_xs[_k] = _xs[_j]
+				_xs[_j] = _xs[_i]
+				_xs[_i] = x
+				_i++
+				_j++
 			} else if {{.eq}} {
-				xs[k] = xs[j]
-				xs[j] = x
-				j++
+				_xs[_k] = _xs[_j]
+				_xs[_j] = x
+				_j++
 			}
 		}
 
-		return xs[:i], xs[j:]
+		return _xs[:_i], _xs[_j:]
 	}
 
+	const threshold = 1000
 	var wg sync.WaitGroup
 	var {{.name}} func([]{{.T}})
 	{{.name}} = func(xs []{{.T}}) {
@@ -60,7 +59,7 @@ func {{if .receiver}}({{.receiver}}) {{end}}{{.name}}(xs []{{.T}}) {
 			return
 		}
 
-		low, high := partition(xs)
+		low, high := _partition(xs)
 
 		var short, long []{{.T}}
 		if len(low) < len(high) {
@@ -82,7 +81,7 @@ func {{if .receiver}}({{.receiver}}) {{end}}{{.name}}(xs []{{.T}}) {
 		goto init
 	}
 
-	{{.name}}(xs)
+	{{.name}}(_xs)
 	wg.Wait()
 }
 `
