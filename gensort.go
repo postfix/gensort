@@ -68,21 +68,21 @@ func {{.name}}(xs []{{.T}}) {
 			short, long = high, low
 		}
 
-    if len(short) > threshold {
-      wg.Add(1)
-      go func() {
-        {{.name}}(short)
-        wg.Done()
-      }()
-    } else {
-      {{.name}}(short)
-    }
-    xs = long
-    goto init
-  }
+		if len(short) > threshold {
+			wg.Add(1)
+			go func() {
+				{{.name}}(short)
+				wg.Done()
+			}()
+		} else {
+			{{.name}}(short)
+		}
+		xs = long
+		goto init
+	}
 
-  {{.name}}(xs)
-  wg.Wait()
+	{{.name}}(xs)
+	wg.Wait()
 }
 `
 )
