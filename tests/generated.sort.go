@@ -7,7 +7,7 @@ import (
 )
 
 func quickSort(_xs []int) {
-	_partition := func(_xs []int) (low, high []int) {
+	_partition := func(_xs []int) (_low, _high []int) {
 		var (
 			_chosen = rand.Intn(len(_xs))
 			y       = _xs[_chosen]

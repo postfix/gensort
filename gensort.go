@@ -26,7 +26,7 @@ import (
 )
 
 func {{if .receiver}}({{.receiver}}) {{end}}{{.name}}(_xs []{{.T}}) {
-	_partition := func(_xs []{{.T}}) (low, high []{{.T}}) {
+	_partition := func(_xs []{{.T}}) (_low, _high []{{.T}}) {
 		var (
 			_chosen = rand.Intn(len(_xs))
 			y       = _xs[_chosen]
