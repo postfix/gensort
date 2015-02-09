@@ -50,6 +50,7 @@ func quickSort(_xs []int) {
 		}
 
 		if len(short) > threshold {
+			short := short
 			wg.Add(1)
 			go func() {
 				quickSort(short)

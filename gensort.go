@@ -69,6 +69,7 @@ func {{if .receiver}}({{.receiver}}) {{end}}{{.name}}(_xs []{{.T}}) {
 		}
 
 		if len(short) > threshold {
+			short := short
 			wg.Add(1)
 			go func() {
 				{{.name}}(short)
