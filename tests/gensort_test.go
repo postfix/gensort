@@ -12,7 +12,7 @@ import (
 
 func TestSort(t *testing.T) {
 	rand.Seed(time.Now().Unix())
-	xs := randomArray(1e7)
+	xs := randomArray(1e6)
 	xs1 := append([]int(nil), xs...)
 	xs2 := append([]int(nil), xs...)
 	quickSort(xs1)
@@ -24,7 +24,7 @@ func TestSort(t *testing.T) {
 
 func randomArray(n int) (xs []int) {
 	for i := 0; i < n; i++ {
-		xs = append(xs, rand.Intn(1e6))
+		xs = append(xs, rand.Intn(1e5))
 	}
 	return
 }
