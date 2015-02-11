@@ -21,7 +21,7 @@ import "fmt"
 func main() {
 	xs := []int64{3, 1, 2}
 	sortInt64(xs)
-	fmt.Println(xs)
+	fmt.Println(xs) //=> [3, 2, 1]
 }
 ```
 
