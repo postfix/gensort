@@ -26,3 +26,5 @@ func main() {
 ```
 
 [Sample of generated sort function](https://github.com/mozu0/gensort/blob/master/sample/sort.int64.go)
+
+With `--receiver` flag, you can generate a sort function attached to the specified method receiver. You can reference the receiver within `--less` or `--eq` sort.
