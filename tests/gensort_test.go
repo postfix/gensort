@@ -1,4 +1,4 @@
-package main
+package tests
 
 import (
 	"math/rand"
@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-//go:generate gensort --name quickSort --output generated.sort.go
+//go:generate gensort --name quickSort --output generated.sort.go --package=tests
 
 func TestSort(t *testing.T) {
 	rand.Seed(time.Now().Unix())
