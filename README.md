@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/mozu0/gensort.svg?branch=master)](https://travis-ci.org/mozu0/gensort)
 # gensort
 gensort generates Go sort function for T[]
 
