@@ -3,7 +3,7 @@
 gensort generates Go sort function for T[]
 
 gensort can generate parallel quicksort function for slices of any types.
-You can specify comparing function by `--eq` and `--less` flag.
+You can specify comparing function by `--eq` and `--less` or `--cmp` flag.
 For example, when you want to sort ints in decreasing order, you can use `--less "x > y"`.
 For large (> 1e6) slices, the generated sorting function typically runs 2 times faster (even without any parallelism) than the sort function in standard Go library.
 
