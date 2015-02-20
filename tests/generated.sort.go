@@ -15,13 +15,17 @@ func quickSort(_xs []int) {
 
 		_i, _j := 0, 0
 		for _k, x := range _xs {
+
 			if x < y {
+
 				_xs[_k] = _xs[_j]
 				_xs[_j] = _xs[_i]
 				_xs[_i] = x
 				_i++
 				_j++
+
 			} else if x == y {
+
 				_xs[_k] = _xs[_j]
 				_xs[_j] = x
 				_j++
@@ -50,7 +54,7 @@ func quickSort(_xs []int) {
 		}
 
 		if len(short) > threshold {
-      short := short
+			short := short
 			wg.Add(1)
 			go func() {
 				quickSort(short)
